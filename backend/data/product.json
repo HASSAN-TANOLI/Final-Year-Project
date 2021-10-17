@@ -1,0 +1,21 @@
+[
+  
+{
+  "name": "Nvidia Graphic Card 1050ti",
+  "price": "30000",
+  "description" : "Nvidia 1050ti 4gb 256bit graphic card",
+  "ratings": 4.5,
+  "images": [{
+   
+   "url":  "https://images-na.ssl-images-amazon.com/images/I/61bHPTCiKjL._AC_SL1000_.jpg"
+  }],
+
+  "category": "Graphic Card",
+  "Seller": "gaming shop in rawalpindi",
+  "stock": 50,
+  "numOfReviews": 32,
+  "reviews": []
+
+}
+
+]
