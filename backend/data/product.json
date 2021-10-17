@@ -11,11 +11,50 @@
   }],
 
   "category": "Graphic Card",
-  "Seller": "gaming shop in rawalpindi",
+  
   "stock": 50,
   "numOfReviews": 32,
   "reviews": []
 
+},
+
+{
+  "name": "Nvidia Graphic Card 1080ti",
+  "price": "70000",
+  "description" : "Nvidia 1080ti 6gb 256bit graphic card",
+  "ratings": 4.8,
+  "images": [{
+   
+   "url":  "https://asset.msi.com/resize/image/global/product/product_3_20171012153630_59df1b7ecd614.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"
+  }],
+
+  "category": "Graphic Card",
+  
+  "stock": 30,
+  "numOfReviews": 12,
+  "reviews": []
+
+},
+
+{
+  "name": "Nvidia Graphic Card 750ti",
+  "price": "12000",
+  "description" : "Nvidia 750ti 6gb 128bit graphic card",
+  "ratings": 4.4,
+  "images": [{
+   
+   "url":  "https://m.media-amazon.com/images/I/A1eBUO8GHmL._AC_SL1500_.jpg"
+  }],
+
+  "category": "Graphic Card",
+  
+  "stock": 10,
+  "numOfReviews": 22,
+  "reviews": []
+
 }
+
+
+
 
 ]

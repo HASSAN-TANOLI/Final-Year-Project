@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
   },
 
   ratings: {
-    type: number,
+    type: Number,
     default: 0
   },
 
@@ -65,10 +65,10 @@ const productSchema = new mongoose.Schema({
     }
   },
 
-    seller: {
-      type: String,
-      required: [true, 'Please enter product seller']
-    },
+  // vendor: {
+  //   type: String,
+  //   required: [true, 'Please enter product vendor']
+  // },
 
     stock: {
         type: Number,
