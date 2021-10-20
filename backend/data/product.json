@@ -10,7 +10,7 @@
    "url":  "https://images-na.ssl-images-amazon.com/images/I/61bHPTCiKjL._AC_SL1000_.jpg"
   }],
 
-  "category": "Graphic Card",
+  "category": "GraphicCards",
   
   "stock": 50,
   "numOfReviews": 32,
@@ -28,7 +28,7 @@
    "url":  "https://asset.msi.com/resize/image/global/product/product_3_20171012153630_59df1b7ecd614.png62405b38c58fe0f07fcef2367d8a9ba1/1024.png"
   }],
 
-  "category": "Graphic Card",
+  "category": "GraphicCards",
   
   "stock": 30,
   "numOfReviews": 12,
@@ -46,10 +46,46 @@
    "url":  "https://m.media-amazon.com/images/I/A1eBUO8GHmL._AC_SL1500_.jpg"
   }],
 
-  "category": "Graphic Card",
+  "category": "GraphicCards",
   
   "stock": 10,
   "numOfReviews": 22,
+  "reviews": []
+
+},
+
+{
+  "name": "Ryzen Keyboard",
+  "price": "4000",
+  "description" : "Ryzen mechanical rgb keyboard",
+  "ratings": 4.5,
+  "images": [{
+   
+   "url":  "https://www.techspot.com/images2/news/bigimage/2017/08/2017-08-14-image-15.jpg"
+  }],
+
+  "category": "KeyBoards",
+  
+  "stock": 5,
+  "numOfReviews": 32,
+  "reviews": []
+
+},
+
+{
+  "name": "Ryzen Mouse",
+  "price": "3000",
+  "description" : "Ryzen Rgb Mouse",
+  "ratings": 4.8,
+  "images": [{
+   
+   "url":  "https://www.techspot.com/images2/news/bigimage/2017/08/2017-08-14-image-15.jpg"
+  }],
+
+  "category": "Mouse",
+  
+  "stock": 15,
+  "numOfReviews": 42,
   "reviews": []
 
 }
