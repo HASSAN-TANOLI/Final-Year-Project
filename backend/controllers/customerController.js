@@ -41,7 +41,7 @@ exports.loginUser = catchAsyncErrors (async (req, res, next) => {
 
   if (!email || !password)
   {
-    return next(new Errorhandler ('Please enter email and password', 400))
+    return next(new ErrorHandler ('Please enter email and password', 400))
   }
 
   // finding user in database 
@@ -50,16 +50,16 @@ exports.loginUser = catchAsyncErrors (async (req, res, next) => {
   
   if (!user)
   {
-    return next(new Errorhandler ('Invalid Email or password', 401))
+    return next(new ErrorHandler ('Invalid Email or password', 401))
   }
 
   //Check if password is correct or not 
 
-  const isPasswordMatched = await user.comparePassword(password);
+  const isPasswordMatched = await user.comparePassword(password)
 
   if(!isPasswordMatched)
   {
-    return next(new Errorhandler ('Invalid Email or password', 401))
+    return next(new ErrorHandler ('Invalid Email or password', 401))
   }
 
   const token = user.getjwtToken();
