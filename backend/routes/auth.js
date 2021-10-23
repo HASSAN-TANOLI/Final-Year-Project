@@ -6,4 +6,4 @@ const {registerUser, loginUser} = require('../controllers/customerController');
 router.route('/register').post(registerUser);
 router.route('/login').post(loginUser);
 
-module.exports = router;
+module.exports = router; 

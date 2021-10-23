@@ -107,4 +107,5 @@ const productSchema = new mongoose.Schema({
 
 })
 
+//Now mongoose.model is used to compiled schema into model and can further use for CRUD operation
 module.exports = mongoose.model('product', productSchema);
