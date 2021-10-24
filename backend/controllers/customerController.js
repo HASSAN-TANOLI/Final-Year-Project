@@ -59,3 +59,4 @@ exports.loginUser = catchAsyncErrors (async (req, res, next) => {
   sendToken(user, 200, res)
 
 })
+

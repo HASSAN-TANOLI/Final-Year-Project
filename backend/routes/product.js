@@ -2,9 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 const { getproducts, newProduct, getSingleProduct, updateProduct, deleteProduct } = require('../controllers/productcontroller');
+const {isAuthenticatedVendor} = require('../middlewares/auth');
 
 
-router.route('/products').get(getproducts);
+router.route('/products').get(isAuthenticatedVendor, getproducts);
 
 router.route('/product/:id').get(getSingleProduct);
 

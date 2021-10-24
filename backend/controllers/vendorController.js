@@ -1,6 +1,7 @@
 const Vendor = require('../models/vendor');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
+const sendToken = require('../utils/jwtToken');
 
 
 // Register new vendor => /api/v1/registervendor
@@ -23,12 +24,7 @@ exports.registerVendor = catchAsyncErrors (async (req, res, next) => {
 
   })
 
-  const token = vendor.getJwtToken();
-
-  res.status(201).json({
-    success: true,
-    token
-  })
+  sendToken(vendor, 200, res)
 
 })
 
@@ -62,11 +58,19 @@ exports.loginVendor = catchAsyncErrors (async (req, res, next) => {
     return next(new ErrorHandler ('Invalid email or password', 401));
   }
 
-  const token = vendor.getJwtToken();
+  sendToken(vendor, 200, res)
+})
+
+exports.logoutVendor = catchAsyncErrors (async (req, res, next) => {
+  res.cookie('token', null , {
+
+    expires: new Date(Date.now()),
+    httpOnly: true,
+    
+  })
 
   res.status(200).json({
     success: true,
-    token
+    message: 'Logged out'
   })
 })
-
