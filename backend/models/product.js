@@ -100,6 +100,12 @@ const productSchema = new mongoose.Schema({
       }
     ],
 
+    vendor: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Vendor',
+      required: true
+    },
+
     createdAt: {
       type: Date,
       default: Date.now 

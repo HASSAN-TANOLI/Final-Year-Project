@@ -7,6 +7,7 @@ const APIFeatures = require('../utils/apiFeatures')
 
 exports.newProduct = catchAsyncErrors (async (req,res, next) => {
   
+  req.body.vendor = req.vendor.id;
   const product = await Product.create(req.body);
  
   res.status(201).json({
