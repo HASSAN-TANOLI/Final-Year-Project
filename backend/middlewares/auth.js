@@ -1,5 +1,5 @@
 // Protecting route from unauthroize users.
-
+const User = require('../models/user')
 const Vendor = require("../models/vendor");
 const jwt = require("jsonwebtoken");
 const ErrorHandler = require('../utils/errorHandler');
@@ -22,3 +22,16 @@ exports.isAuthenticatedVendor = catchAsyncErrors (async (req, res, next) => {
   }
 
 })
+
+// Handling User authorizeRoles
+exports.authorizeRoles = (...roles) => {
+  return (req, res, next) => {
+  if(!roles.includes(req.vendor.role))
+  {
+    return next(
+    new ErrorHandler(`Role (${req.vendor.role}) is not allowed to access that resource`, 403))
+
+  }
+  next()
+}
+}
