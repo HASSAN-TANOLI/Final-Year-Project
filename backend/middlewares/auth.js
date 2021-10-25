@@ -1,3 +1,5 @@
+// Protecting route from unauthroize users.
+
 const Vendor = require("../models/vendor");
 const jwt = require("jsonwebtoken");
 const ErrorHandler = require('../utils/errorHandler');

@@ -5,15 +5,15 @@ const { getproducts, newProduct, getSingleProduct, updateProduct, deleteProduct 
 const {isAuthenticatedVendor} = require('../middlewares/auth');
 
 
-router.route('/products').get(isAuthenticatedVendor, getproducts);
+router.route('/products').get(getproducts);
 
 router.route('/product/:id').get(getSingleProduct);
 
-router.route('/admin/product/new').post(newProduct);
+router.route('/admin/product/new').post(isAuthenticatedVendor, newProduct);
 
-router.route('/admin/product/:id').put(updateProduct);
+router.route('/admin/product/:id').put(isAuthenticatedVendor, updateProduct);
 
-router.route('/admin/product/:id').delete(deleteProduct);
+router.route('/admin/product/:id').delete(isAuthenticatedVendor, deleteProduct);
 
 
 

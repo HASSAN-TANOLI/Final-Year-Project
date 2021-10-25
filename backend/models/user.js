@@ -53,11 +53,11 @@ const userSchema = new mongoose.Schema({
 
 //Encrypting password before saving
 userSchema.pre('save', async function (next) {
-   if(!this.isModified ('password')){
+   if(!this.isModified ('password')){   //if the password is not Modified we dont have to assign a token
      next()
    }
 
-   this.password = await bcrypt.hash(this.password, 10)
+   this.password = await bcrypt.hash(this.password, 10) //10 is the length of this hash which will encrypt pass
 })
 
 //Compare user password
@@ -68,7 +68,7 @@ userSchema.methods.comparePassword = async function (enteredPassword)
 } 
 
 //Return JWT token 
-userSchema.methods.getjwtToken = function () 
+userSchema.methods.getJwtToken = function () 
 {
   return jwt.sign({ id: this._id}, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIRES_TIME

@@ -61,14 +61,14 @@ exports.loginVendor = catchAsyncErrors (async (req, res, next) => {
   sendToken(vendor, 200, res)
 })
 
+//Logout vendor => /api/v1/logoutvendor
+
 exports.logoutVendor = catchAsyncErrors (async (req, res, next) => {
-  res.cookie('token', null , {
-
-    expires: new Date(Date.now()),
-    httpOnly: true,
-    
-  })
-
+   res.cookie('token', null, {
+     expires: new Date(Date.now()),
+     httpOnly: true
+     
+   })
   res.status(200).json({
     success: true,
     message: 'Logged out'
