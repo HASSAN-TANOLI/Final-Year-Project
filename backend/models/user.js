@@ -81,9 +81,11 @@ userSchema.methods.getJwtToken = function ()
 userSchema.methods.getResetPasswordToken = function () {
   
   //Generate Token
+  //Randombytes use to generate randombyte
 
   const resetToken = crypto.randomBytes(20).toString('hex');
 
+  //crypto.createhash use to create hashobject which use encryption algorithm and digest is use for encoding.
   //Hash and set to reset password token
   this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex')
 
@@ -91,6 +93,8 @@ userSchema.methods.getResetPasswordToken = function () {
 
   this.resetPasswordExpire = Date.now() + 30 * 60 * 1000
 
+
+  //Sending token as it is in url only the hash version is store in database and then we encrypt resetToken and match it with hash version if its same we will allow user to change password.
   return resetToken
 }
 

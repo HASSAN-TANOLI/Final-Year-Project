@@ -116,7 +116,7 @@ exports.forgotPassword = catchAsyncErrors (async (req, res, next) => {
 
 exports.resetPassword = catchAsyncErrors (async (req, res, next) => {
   
-  //Hash url token
+  //Getting token from url and hashing it so we can compare it with hashtoken save in database to see it correct or not..
   const resetPasswordToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
 
   // now we have hash url token we can compare that with our database
