@@ -147,6 +147,9 @@ exports.resetPassword = catchAsyncErrors (async (req, res, next) => {
 
   sendToken (user, 200, res)
 })
+
+
+
 //Logout users => /api/v1/logoutuser
 
 exports.logoutUser = catchAsyncErrors (async (req, res, next) => {
