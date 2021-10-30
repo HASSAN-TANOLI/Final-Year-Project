@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 const { getproducts, newProduct, getSingleProduct, updateProduct, deleteProduct } = require('../controllers/productcontroller');
-const {isAuthenticatedVendor, authorizeRoles } = require('../middlewares/auth');
+const {isAuthenticatedVendor, authorizeRoles, isAuthenticatedUser } = require('../middlewares/auth');
 
 
-router.route('/products').get(getproducts);
+router.route('/products').get(isAuthenticatedUser, getproducts);
 
 router.route('/product/:id').get(getSingleProduct);
 
