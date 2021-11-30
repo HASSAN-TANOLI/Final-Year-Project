@@ -15,9 +15,10 @@ exports.isAuthenticatedVendor = catchAsyncErrors (async (req, res, next) => {
     return next(new ErrorHandler ('Login first to access this resource.', 401))
   }
 
+  //if the vendor exist we will fetch token from cookie and verify it with our secret JWT_SECRET cookie
   const decoded = jwt.verify(token, process.env.JWT_SECRET)
   {
-    req.vendor = await Vendor.findById(decoded.id);
+    req.vendor = await Vendor.findById(decoded.id); //USing decoded.id becuase we send id as a payload in token
     next()
   }
 
@@ -44,7 +45,7 @@ exports.isAuthenticatedUser = catchAsyncErrors (async (req, res, next) => {
 // Handling User authorizeRoles
 exports.authorizeRoles = (...roles) => {
   return (req, res, next) => {
-  if(!roles.includes(req.vendor.role))
+  if(roles.includes(req.vendor.role))
   {
     return next(
     new ErrorHandler(`Role (${req.vendor.role}) is not allowed to access that resource`, 403))

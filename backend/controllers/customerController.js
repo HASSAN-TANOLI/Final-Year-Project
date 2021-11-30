@@ -64,6 +64,8 @@ exports.loginUser = catchAsyncErrors (async (req, res, next) => {
 
 })
 
+
+
 //forgot password => /api/v1/userpassword/forgot
 
 exports.forgotPassword = catchAsyncErrors (async (req, res, next) => {

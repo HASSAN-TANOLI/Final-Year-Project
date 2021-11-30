@@ -11,8 +11,8 @@ class APIFeatures {
   {
   const keyword = this.queryStr.keyword ? {
     name: {
-      $regex: this.queryStr.keyword,
-      $options: 'i'
+      $regex: this.queryStr.keyword,    //Search product by name
+      $options: 'i'                     //using 'i' for case insensitive
     } 
 
 
@@ -29,7 +29,9 @@ class APIFeatures {
        const queryCopy = {...this.queryStr};
 
        
-       //Removing fields from the query
+       //Removing fields from the query 
+
+       // removing keyword because for search we dont have any keyword obj in database so we remove it 
 
        const removeFields = ['keyword', 'limit', 'page']
        removeFields.forEach(el => delete queryCopy[el]);
@@ -38,6 +40,8 @@ class APIFeatures {
 
        //Advance filtering for price and rating 
        let queryStr = JSON.stringify(queryCopy)
+
+       // gt|gte etc are mongo operator so mongo operator start with $ sign so we have to add $ sign.
       queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`)
 
       
@@ -49,6 +53,8 @@ class APIFeatures {
     pagination(resPerPage)
     {
       const currentPage = Number(this.queryStr.page) || 1;
+      
+      //suppose user click on 2 page so we have to skip first 10 product and show next 10 product so we use skip.
       const skip = resPerPage * (currentPage - 1);
 
       this.query = this.query.limit(resPerPage).skip(skip);
