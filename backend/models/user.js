@@ -52,6 +52,8 @@ const userSchema = new mongoose.Schema({
 
 })
 
+
+
 //Encrypting password before saving
 userSchema.pre('save', async function (next) {
    if(!this.isModified ('password')){   //if the password is not Modified we dont have to assign a token
@@ -71,7 +73,7 @@ userSchema.methods.comparePassword = async function (enteredPassword)
 //Return JWT token 
 userSchema.methods.getJwtToken = function () 
 {
-  return jwt.sign({ id: this._id}, process.env.JWT_SECRET, {
+  return jwt.sign({ id: this._id}, process.env.JWT_SECRET, { // passing id as payload to token
       expiresIn: process.env.JWT_EXPIRES_TIME
   });
 }

@@ -19,13 +19,13 @@ module.exports = (err, req, res, next) => {
 
     error.message = err.message;
 
-    // Wrong moongose Object ID eoor
+    // Wrong moongose Object ID error  // wrong id error
     if (err.name === 'CastError') {
       const message = `Resource not found. invalid: ${err.path}`
       error = new ErrorHandler(message, 400)
     }
 
-    // Handling moongose validation error
+    // Handling moongose validation error //Error Occur while missing input data
 
     if (err.name === 'ValidationError')
     {

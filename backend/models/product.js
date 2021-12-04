@@ -33,10 +33,10 @@ const productSchema = new mongoose.Schema({
     //   required: true
     // },
 
-    url: {
-      type: String,
-      required: true
-    },
+    // url: {
+    //   type: String,
+    //   required: true
+    // },
 
   }
 ],

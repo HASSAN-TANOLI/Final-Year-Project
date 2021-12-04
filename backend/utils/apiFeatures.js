@@ -11,14 +11,15 @@ class APIFeatures {
   {
   const keyword = this.queryStr.keyword ? {
     name: {
-      $regex: this.queryStr.keyword,    //Search product by name
+      $regex: this.queryStr.keyword,    //Search product by name // using regex so it will help to search by
+                                        //one word or multiple word
       $options: 'i'                     //using 'i' for case insensitive
     } 
 
 
   } : {}
 
-  console.log(keyword);
+    console.log(keyword);
 
   this.query = this.query.find ( {...keyword });
   return this;
@@ -39,6 +40,7 @@ class APIFeatures {
        
 
        //Advance filtering for price and rating 
+       //query copy is in object so we have to convert it to string by using stringify in order to run function on it.
        let queryStr = JSON.stringify(queryCopy)
 
        // gt|gte etc are mongo operator so mongo operator start with $ sign so we have to add $ sign.
