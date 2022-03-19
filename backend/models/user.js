@@ -78,7 +78,7 @@ userSchema.methods.getJwtToken = function ()
   });
 }
 
-//Genrate password return token
+//Genrate password reset token 
 
 userSchema.methods.getResetPasswordToken = function () {
   

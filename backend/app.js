@@ -8,6 +8,7 @@ const errorMiddleware = require('./middlewares/errors')
  app.use(cookieParser());
  
 //Importing all the routers
+const PcProduct = require('./routes/PcProduct');
 const products = require('./routes/product');
 const auth = require('./routes/auth');
 const authVendor = require('./routes/authVendor');
@@ -15,6 +16,7 @@ const authVendor = require('./routes/authVendor');
 app.use('/api/v1', products)
 app.use('/api/v1', auth)
 app.use('/api/v1', authVendor)
+app.use('/api/v1', PcProduct)
 
 //Middleware to handle errors
 app.use(errorMiddleware);

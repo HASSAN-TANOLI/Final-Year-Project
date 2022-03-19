@@ -4,7 +4,8 @@ const Vendor = require("../models/vendor");
 const jwt = require("jsonwebtoken");
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middlewares/catchAsyncErrors');
-// Checks if user is authenticated or not foun
+
+// Checks if user is authenticated or not found
 
 exports.isAuthenticatedVendor = catchAsyncErrors (async (req, res, next) => {
 
